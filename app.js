@@ -62,7 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', routes);
 
 /**
- * all not-apis, 404 will be handled at frontend
+ * all not-apis, 404 will be handled at frontend side
  */
 
 app.use('/', index);

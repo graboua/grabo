@@ -1,0 +1,40 @@
+<div *ngIf="category?.description?.p?.length" class="row" fxLayout="row">
+  <div class="cell" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <h2 class="mat-display-1" *ngIf="category?.description?.title" [innerHTML]="category.description.title">
+          <!--{{category.description.title}}-->
+        </h2>
+        <div class="text-justify">
+          <div class="category-description-body">
+            <p class="mat-body-1" *ngFor="let p of category.description.p" [innerHTML]="p">
+              <!--{{p}}-->
+            </p>
+          </div>
+
+          <div class="category-description-list">
+            <mat-list *ngIf="category?.description?.li">
+              <mat-list-item *ngFor="let li of category.description.li">
+                <!--<mat-icon matListIcon>fiber_manual_record</mat-icon>-->
+                <p [innerHTML]="li">
+                 <!--{{li}}-->
+                </p>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="row" fxLayout="row" >
+  <div *ngFor="let product of products"  class="cell"
+       fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.3" fxFlex.gt-md="25">
+    <app-product-item-brief [product]="product" [category_id]="category_id"></app-product-item-brief>
+  </div>
+  <div *ngFor="let descendant of descendants" class="cell"
+       fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33.3" fxFlex.gt-md="25">
+    <app-product-item-brief  [descendant]="descendant"></app-product-item-brief>
+  </div>
+</div>

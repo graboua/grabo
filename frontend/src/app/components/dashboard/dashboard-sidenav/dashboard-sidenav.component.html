@@ -1,0 +1,7 @@
+    <!--<mat-toolbar class="mat-elevation-z2">-->
+      <mat-toolbar-row *ngFor="let dashboardSidenavItem of dashboardSidenavItems" class="sidenav-mat-toolbar-row">
+        <a [routerLinkActive]="['primary-background']" [routerLinkActiveOptions]="{exact: true}" mat-button
+           [routerLink]="['/dashboard', dashboardSidenavItem._id]">{{dashboardSidenavItem.name}}</a>
+      </mat-toolbar-row>
+    <!--</mat-toolbar>-->
+

@@ -1,0 +1,53 @@
+<mat-card>
+  <mat-card-header></mat-card-header>
+  <mat-card-title></mat-card-title>
+
+  <mat-card-content>
+    <h2 class="mat-h3">{{design._id}}</h2>
+    <div class="product-cl-image-wrapper-outer">
+      <div class="product-cl-image-wrapper-inner">
+        <img src="{{config.imgPath + config.cloudinary.cloud_name + '/c_fill,w_180,h_180,f_auto/' + design.image}}"
+             alt="design picture" class="product-cl-image">
+
+        <!--<cl-image class="product-cl-image"-->
+          <!--public-id="{{design.image || config.defaultProductImgPath}}"-->
+          <!--secure="true">-->
+        <!--<cl-transformation-->
+        <!--quality="auto" fetch_format="auto" crop="thumb">-->
+        <!--&lt;!&ndash;radius="20">&ndash;&gt;-->
+        <!--</cl-transformation>-->
+        <!--&lt;!&ndash;<cl-transformation overlay="cloudinary_icon" gravity="south_east" x="5" y="5" width="50" opacity="60" effect="brightness:200">&ndash;&gt;-->
+        <!--&lt;!&ndash;</cl-transformation>&ndash;&gt;-->
+        <!--&lt;!&ndash;<cl-transformation angle="10">&ndash;&gt;-->
+        <!--&lt;!&ndash;</cl-transformation>&ndash;&gt;-->
+        <!--</cl-image>-->
+      </div>
+    </div>
+      <!--<div class="info-block-row-wrapper">-->
+      <div fxLayout="row" fxLayoutAlign="center" class="info-block-row">
+        <!--<mat-icon class="muted">edit</mat-icon>-->
+        <!--<div class="info-block-row-title mat-subheading-1 cell">Структура </div>-->
+        <div class="mat-subheading-1 muted" fxFlex>{{design.structure}}</div>
+        <!--<mat-icon *ngIf="processing !== 'email'" fxFlex="30px"-->
+                  <!--(click)="openDialog(makeEmailObject())" class="muted">edit</mat-icon>-->
+        <!--<mat-spinner *ngIf="processing === 'email'" fxFlex="30px" [diameter]="24"></mat-spinner>-->
+      <!--</div>-->
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div fxFlex></div>
+    <div fxFlex *ngIf="user && user?.role === 'manager' || user?.role === 'admin'">
+      <a mat-icon-button
+      [routerLink]="['/dashboard/designs_editor_edit', design._id]"
+      [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>edit</mat-icon>
+      </a>
+      <a mat-icon-button color="primary"
+         (click)="openDialog({message: 'Видалити дизайн ' + design._id, data: design._id})">
+        <mat-icon>delete_forever</mat-icon>
+      </a>
+    </div>
+
+  </mat-card-actions>
+</mat-card>
+

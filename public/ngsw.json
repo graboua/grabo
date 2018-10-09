@@ -1,0 +1,101 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/1.b8aa42b5162da3db4984.js",
+        "/2.bb2e120a5ba88bb944e6.js",
+        "/3.835a27af894725ee7f04.js",
+        "/4.2dfe20adc50ab9eaff21.js",
+        "/assets/images/bg3.svg",
+        "/assets/images/g_logo.svg",
+        "/assets/images/grabo_logo.svg",
+        "/assets/images/grabo_logo_full2.svg",
+        "/assets/images/grabofloors_logo.svg",
+        "/common.b098bf1f0dd8d42ee02d.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.44d12313d2fe9fcccb8e.js",
+        "/polyfills.30a5c39ffa47de6f8b03.js",
+        "/runtime.fef4ea8dc96b8efd8ec7.js",
+        "/scripts.d1a4a51347c220973e96.js",
+        "/styles.e1a30a20c2af69f84a57.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/g_logo_animated.svg",
+        "/assets/images/graboplast_logo.svg",
+        "/assets/images/loading.svg",
+        "/assets/images/trice_logo_full.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/1.b8aa42b5162da3db4984.js": "5202179d81b5f2598c9e04fe86d943de4cbcff9b",
+    "/2.bb2e120a5ba88bb944e6.js": "67de91cd58235e2b3f8b97474e5ff6cfeb855fd4",
+    "/3.835a27af894725ee7f04.js": "81e99e072ea363795d033ed0d2380527e23c0448",
+    "/4.2dfe20adc50ab9eaff21.js": "a488c5f37108b5b83de6dd392456d9fdaa4958ff",
+    "/assets/icons/icon-128x128.png": "0889d85f094f74ae593054728191d15506245d82",
+    "/assets/icons/icon-144x144.png": "98c08fe6ced4bce773b6cc7243ca30548b6f4064",
+    "/assets/icons/icon-152x152.png": "f93fd3231dc883e2371c5b9e1e63dea50e53880f",
+    "/assets/icons/icon-192x192.png": "19097a869f8fe4ad62ec170192a8bccd07fcff4a",
+    "/assets/icons/icon-384x384.png": "d39b7494075a8e7948f08b69b770bf588c91684e",
+    "/assets/icons/icon-512x512.png": "5e261d0ddc7457a6a3eec863a86d16c88a003c86",
+    "/assets/icons/icon-72x72.png": "08930a7b614be0d0fa534c5bfd02b763f68fbb45",
+    "/assets/icons/icon-96x96.png": "04713750e0bf94e1c089c01d5cd1177981e5d3f3",
+    "/assets/images/bg3.svg": "5f469dddabb71b1b7708eb80dfe03771496a1216",
+    "/assets/images/g_logo.svg": "e77b83abb04d0d5c273c99f85aa9da3737434457",
+    "/assets/images/g_logo_animated.svg": "8f5876d3929f1d4efbdd9f5c756f97238af9dd4b",
+    "/assets/images/grabo_logo.svg": "9e73561e2ab311194d311e2fc63766ba6defadee",
+    "/assets/images/grabo_logo_full2.svg": "154c0fe597a0fa21947b945a9c8313eb9ccf052b",
+    "/assets/images/grabofloors_logo.svg": "888a7815869a0465feec3ec726f016a12ebca424",
+    "/assets/images/graboplast_logo.svg": "8678f737faf7dab42c93772c93fa301b34f0bab4",
+    "/assets/images/loading.svg": "e515b13cc79c383c3fe0594e593cc24b669ca81c",
+    "/assets/images/trice_logo_full.svg": "25c740eabea47fe30d8fe464ce6fcc40e6383060",
+    "/common.b098bf1f0dd8d42ee02d.js": "f68d88c8d47529f0ee1b9084e49b4d440fc117dd",
+    "/favicon.ico": "1a707ab30f1abfe467fa07b603f68779dc5faae6",
+    "/index.html": "30c2da399441d232a680bfb19f08e90a3bbf25d8",
+    "/main.44d12313d2fe9fcccb8e.js": "4d044457454aa6987a98327112ea05a655dd7d92",
+    "/polyfills.30a5c39ffa47de6f8b03.js": "67dc68ab1227b3190eee18e867c8bb3befd0cb6e",
+    "/runtime.fef4ea8dc96b8efd8ec7.js": "3d5a465cd7b86e38b3dc39bfda2a7f108355f029",
+    "/scripts.d1a4a51347c220973e96.js": "4932f744a454bcf073a7f1ce2af9e21dd5169b9b",
+    "/styles.e1a30a20c2af69f84a57.css": "47f3d0f4bd93902d5ecfc198ecb86876aff5802d"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

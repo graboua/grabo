@@ -1,0 +1,17 @@
+<!--<a *ngFor="let sibling of siblings" mat-button-->
+   <!--[routerLink]="['/products', 'ch', {outlets: {primary: [category_id, 'details', sibling._id],-->
+     <!--breadcrumb: [category_id, 'details', sibling._id]}}]"-->
+   <!--[queryParams]="{name: sibling.name}"-->
+   <!--[routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">-->
+  <!--{{sibling.name}}-->
+<!--</a>-->
+
+<mat-nav-list>
+    <a mat-list-item *ngFor="let sibling of siblings"
+       [routerLink]="['/products', 'ch', {outlets: {primary: [category_id, 'details', sibling._id],
+     breadcrumb: [category_id, 'details', sibling._id]}}]"
+       [queryParams]="{name: sibling.name}"
+       [routerLinkActive]="['primary-background']" [routerLinkActiveOptions]="{exact: true}">
+      {{sibling.name}}
+    </a>
+</mat-nav-list>

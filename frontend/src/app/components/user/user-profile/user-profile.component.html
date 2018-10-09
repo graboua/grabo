@@ -1,0 +1,119 @@
+<div class="row" fxLayout="column" fxLayout.gt-xs="row">
+  <div class="cell" fxFlex.gt-xs="20" fxFlex.gt-md="30"></div>
+
+  <div class="cell" fxFlex.gt-xs="60" fxFlex.gt-md="40">
+
+    <div class="item centered-container" *ngIf="user">
+      <div class="info-block mat-elevation-z4">
+
+        <div class="avatar-block">
+          <form [formGroup]="changeAvatarForm" (submit)="onSubmitChangeAvatarForm()">
+
+          <div class="avatar-img-wrapper">
+            <img *ngIf="!previewAvatarUrl" src="{{user.avatar}}" alt="avatar">
+            <img *ngIf="previewAvatarUrl"  src="{{previewAvatarUrl}}" alt="avatar">
+
+            <div *ngIf="processingChangeAvatar" class="avatar-div-processing">
+              <div class="spinner-wrapper">
+                <mat-spinner [diameter]="24"></mat-spinner>
+              </div>
+            </div>
+
+            <div *ngIf="!editAvatar && !processingChangeAvatar" class="avatar-div-change"></div>
+            <div *ngIf="!editAvatar && !processingChangeAvatar" class="avatar-button-change">
+              <input type="file" accept=".jpg, .jpe, .jpeg, .bmp, .webp, .png, .gif" (change)="changeAvatar($event)" id="input-file">
+              <label for="input-file">Змінити
+              </label>
+            </div>
+
+
+            <div *ngIf="editAvatar && !processingChangeAvatar">
+              <div class="avatar-div-ok" >
+              </div>
+              <div class="avatar-div-cancel">
+              </div>
+              <button class="avatar-button-ok" [disabled]="!changeAvatarForm.valid">
+                <mat-icon>done</mat-icon>
+              </button>
+              <button type="button" class="avatar-button-cancel" (click)="cancelChangeAvatar()">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </div>
+          </div>
+          </form>
+
+        </div>
+
+        <div class="info-block-row-wrapper">
+          <div fxLayout="row" fxLayoutAlign="center" class="info-block-row">
+            <div class="info-block-row-title mat-title">{{user.login}}</div>
+          </div>
+        </div>
+
+        <div class="info-block-row-wrapper">
+            <div fxLayout="row" fxLayoutAlign="center" class="info-block-row">
+              <!--<div fxFlex="100%">-->
+                <div class="info-block-row-title mat-subheading-1" fxFlex="40%">Email</div>
+                <div class="mat-body-1 muted" fxFlex="60%">{{user.email}}</div>
+                <mat-icon *ngIf="processing !== 'email'" fxFlex="30px"
+                          (click)="openDialog(makeEmailObject())" class="muted">edit</mat-icon>
+                <mat-spinner *ngIf="processing === 'email'" fxFlex="30px" [diameter]="24"></mat-spinner>
+              <!--</div>-->
+            </div>
+        </div>
+
+        <div *ngIf="user.role === 'guest' && !verificationSent" class="info-block-row-wrapper border-0">
+          <div fxLayout="row" fxLayoutAlign="center" class="info-block-row mail-verification">
+            <div class="mat-body-1" fxFlex="100%">Пошту не верифіковано, надіслати код</div>
+            <mat-icon *ngIf="processing !== 'verification'" fxFlex="30px" (click)="onVerificationSend()">mail</mat-icon>
+            <mat-spinner *ngIf="processing === 'verification'" fxFlex="30px" [diameter]="24"></mat-spinner>
+          </div>
+        </div>
+
+        <div *ngIf="user.role === 'guest' && verificationSent" class="info-block-row-wrapper border-0">
+          <div fxLayout="row" fxLayoutAlign="center" class="info-block-row mail-verification">
+            <div class="mat-body-1 muted" fxFlex="100%">На пошту надіслано посилання</div>
+            <mat-icon *ngIf="processing !== 'verification'" fxFlex="30px" class="muted" (click)="onVerificationSend()">refresh</mat-icon>
+            <mat-spinner *ngIf="processing === 'verification'" fxFlex="30px" [diameter]="24"></mat-spinner>
+          </div>
+        </div>
+
+        <div class="info-block-row-wrapper">
+          <div fxLayout="row" fxLayoutAlign="center" class="info-block-row">
+            <div class="info-block-row-title mat-subheading-1" fxFlex="40%">Ім'я</div>
+            <!--<div fxFlex></div>-->
+            <div class="mat-subheading-2 muted" fxFlex="60%">{{user.name}}</div>
+            <mat-icon *ngIf="processing !== 'name'" fxFlex="30px"
+                      (click)="openDialog(makeNameObject())" class="muted">edit</mat-icon>
+            <mat-spinner *ngIf="processing === 'name'" fxFlex="30px" [diameter]="24"></mat-spinner>
+
+          </div>
+        </div>
+        <div class="info-block-row-wrapper">
+          <div fxLayout="row" fxLayoutAlign="center" class="info-block-row">
+            <div class="info-block-row-title mat-subheading-1" fxFlex="40%">Прізвище</div>
+            <!--<div fxFlex></div>-->
+            <div class="mat-subheading-2 muted" fxFlex="60%">{{user.surname}}</div>
+            <mat-icon *ngIf="processing !== 'surname'" fxFlex="30px"
+                      (click)="openDialog(makeSurnameObject())" class="muted">edit</mat-icon>
+            <mat-spinner *ngIf="processing === 'surname'" fxFlex="30px" [diameter]="24"></mat-spinner>
+
+          </div>
+        </div>
+        <div class="info-block-row-wrapper">
+          <div fxLayout="row" fxLayoutAlign="center" class="info-block-row">
+            <div fxFlex="60%"></div>
+            <div fxFlex="40%">
+              <button mat-button (click)="openDialog(makePasswordObject())">
+                <span *ngIf="processing !== 'password'">Змінити пароль</span>
+                <mat-spinner *ngIf="processing === 'password'" [diameter]="24"></mat-spinner>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+

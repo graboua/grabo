@@ -1,0 +1,43 @@
+<mat-horizontal-stepper class="crsl" #stepper>
+  <ng-template matStepperIcon="edit">
+  </ng-template>
+
+  <ng-template matStepperIcon="done">
+  </ng-template>
+  <ng-template matStepperIcon="number" let-index="index">
+    <!--{{index + 10}}-->
+  </ng-template>
+
+  <mat-step *ngFor="let banner of homeBanner">
+    <!--<img *ngIf="media.isActive('md')" class="responsive-image-stretch" src="{{-->
+    <img *ngIf="media.isActive('gt-md')" class="responsive-image" src="{{
+            config.imgPath +
+            config.cloudinary.cloud_name +
+            '/c_fill,w_760,h_350,f_auto/' +
+            banner}}"
+         alt="Image">
+    <img *ngIf="media.isActive('md')" class="responsive-image" src="{{
+            config.imgPath +
+            config.cloudinary.cloud_name +
+            '/c_fill,w_550,h_250,f_auto/' +
+            banner}}"
+         alt="Image">
+    <img *ngIf="media.isActive('sm')" class="responsive-image" src="{{
+            config.imgPath +
+            config.cloudinary.cloud_name +
+            '/c_fill,w_760,h_350,f_auto/' +
+            banner}}"
+         alt="Image">
+    <img *ngIf="media.isActive('xs')" class="responsive-image" src="{{
+            config.imgPath +
+            config.cloudinary.cloud_name +
+            '/c_fill,w_590,h_270,f_auto/' +
+            banner}}"
+         alt="Image">
+      <!--<div>-->
+        <!--<button mat-icon-button matStepperNext>-->
+          <!--<mat-icon>navigate_next</mat-icon></button>-->
+      <!--</div>-->
+  </mat-step>
+
+</mat-horizontal-stepper>

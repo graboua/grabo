@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 20" style="enable-background:new 0 0 50 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#D2CFE6;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#FFFFFF;stroke:#D2CFE6;stroke-miterlimit:10;}
+
+	@keyframes hideshow {
+  0% { opacity: 1; }
+  25% { opacity: 0.3; }
+  50% { opacity: 0.3; }
+  75% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+#block1 {
+  opacity: 1;
+  animation: hideshow 1.5s infinite;
+}
+#block2 {
+  opacity: 1;
+  animation: hideshow 1.5s 0.5s infinite;
+}
+#block3 {
+  opacity: 1;
+  animation: hideshow 1.5s 1s infinite;
+}
+
+</style>
+<g id="Слой_2">
+	<g>
+		<circle id="block1" class="st0" cx="9" cy="10" r="5.5"/>
+		<path class="st1" d="M9,5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S6.2,5,9,5 M9,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S12.3,4,9,4
+			L9,4z"/>
+	</g>
+</g>
+<g id="Слой_3">
+	<g>
+		<circle id="block2" class="st0" cx="25" cy="10" r="5.5"/>
+		<path  class="st1" d="M25,5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S22.2,5,25,5 M25,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6
+			S28.3,4,25,4L25,4z"/>
+	</g>
+</g>
+<g id="Слой_4">
+	<g>
+		<circle id="block3" class="st0" cx="41" cy="10" r="5.5"/>
+		<path class="st1" d="M41,5c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5S38.2,5,41,5 M41,4c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6
+			S44.3,4,41,4L41,4z"/>
+	</g>
+	<path class="st2" d="M22.5,8.5"/>
+</g>
+</svg>

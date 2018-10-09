@@ -1,0 +1,115 @@
+<div class="app-container">
+  <div class="container">
+
+    <div class="row" fxLayout="row">
+
+      <div class="cell padding-bottom" fxFlex="100">
+        <!--<mat-card>-->
+        <!--<mat-card-title>-->
+        <!--<p>Ми допоможемо підібрати покриття згідно ваших потреб</p>-->
+        <!--</mat-card-title>-->
+        <!--<mat-card-content>-->
+        <div class="row" fxLayout="row">
+          <div class="cell" fxHide.xs fxFlex.gt-xs="5"></div>
+          <div class="cell" fxFlex.xs="100" fxFlex.gt-xs="95">
+            <h2 class="mat-h2">Сфера використання: <span class="muted">{{recommendation_parent}}</span></h2>
+          </div>
+        </div>
+        <div class="row" fxLayout="row">
+          <div class="cell" fxHide.xs fxFlex.gt-xs="5"></div>
+          <div class="cell-padding" fxFlex.xs="100" fxFlex.gt-xs="95">
+            <form [formGroup]="recomForm" novalidate>
+              <mat-form-field>
+                <mat-select formControlName="recommendations" placeholder="Призначення покриття" (selectionChange)="onSelectCategory($event)">
+                  <mat-optgroup *ngFor="let recommendation of recommendations" [label]="recommendation._id"
+                                [disabled]>
+                    <mat-option *ngFor="let sub of recommendation.sub" [value]="sub._id">
+                      {{sub.name}}
+                    </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+
+                <!--<mat-select formControlName="recom" placeholder="Призначення покриття" (selectionChange)="onSelectCategory($event)">-->
+                <!--<mat-option *ngFor="let recommendation of recommendations" [value]="recommendation">-->
+                <!--{{recommendation}}-->
+                <!--</mat-option>-->
+                <!--</mat-select>-->
+              </mat-form-field>
+            </form>
+
+
+          </div>
+
+        </div>
+
+        <!--</mat-card-content>-->
+        <!--</mat-card>-->
+
+      </div>
+    </div>
+
+    <div class="row" fxLayout="row">
+      <mat-tab-group dynamicHeight [backgroundColor]="'accent'" fxFlex="100">
+        <mat-tab *ngFor="let product of products" [label]="product.name">
+          <div class="container padding-bottom-3">
+            <mat-card>
+              <mat-card-subtitle>
+                <a mat-button
+                   [routerLink]="['/products', 'ch', {outlets: {primary: [product.parent[0], 'details', product._id],
+                    breadcrumb: [product.parent[0], 'details', product._id]}}]"
+                   [queryParams]="{name: product.name}"
+                   [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+                  {{product.name}}
+                </a>
+              </mat-card-subtitle>
+              <div class="row" fxLayout="row">
+                <div fxFlex="100" class="cell text-justify" [innerHTML]="product.description"></div>
+
+                <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33" class="cell"
+                     fxLayout fxLayoutAlign="center center"
+                     *ngFor="let productAsset of product.assets">
+                  <mat-card *ngIf="media.isActive('xs')" class="no-padding">
+                    <mat-card-header fxLayoutAlign="center center">
+                      <!--<mat-card-subtitle class="design-image-title">{{galleryItem}}</mat-card-subtitle>-->
+                    </mat-card-header>
+                    <mat-card-content fxLayoutAlign="center center">
+
+                      <img *ngIf="productAsset" class="responsive-image hover-cursor"
+                           (click)="openDialog(productAsset, product.name)"
+                           src="{{
+                      config.imgPath +
+                      config.cloudinary.cloud_name +
+                      '/c_fill,w_590,h_295,f_auto/' +
+                      productAsset}}"
+                           alt="design">
+                    </mat-card-content>
+                  </mat-card>
+
+
+                  <mat-card *ngIf="media.isActive('gt-xs')" class="no-padding" fxFlex.gt-xs="100">
+                    <mat-card-header fxLayoutAlign="center center">
+                      <!--<mat-card-subtitle class="design-image-title">{{galleryItem}}</mat-card-subtitle>-->
+                    </mat-card-header>
+                    <mat-card-content fxLayoutAlign="center center">
+                      <img *ngIf="productAsset" class="responsive-image-stretch hover-cursor"
+                           (click)="openDialog(productAsset, product.name)"
+                           src="{{
+                      config.imgPath +
+                      config.cloudinary.cloud_name +
+                      '/c_fill,w_350,h_175,f_auto/' +
+                      productAsset}}"
+                           alt="design">
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+    </div>
+  </div>
+
+
+</div>

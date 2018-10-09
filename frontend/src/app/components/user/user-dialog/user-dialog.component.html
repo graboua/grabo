@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Внести зміни</h1>
+<div class="form-block">
+    <form [formGroup]="userEditForm" (submit)="onSubmit()">
+
+      <div fxLayout="row" *ngFor="let dataPayload of data.payload">
+        <div fxFlexAlign="center" class="mat-icon-wrapper">
+          <mat-icon color="primary">{{dataPayload.icon}}</mat-icon>
+        </div>
+        <mat-form-field>
+            <input matInput placeholder="{{dataPayload.label}}" formControlName="{{dataPayload.name}}"
+                   autocomplete="false" type="{{dataPayload.type}}" required>
+            <mat-error *ngFor="let validator of dataPayload.validators">
+              <div
+                *ngIf="(validator.name === 'length' &&
+                (userEditForm.get(dataPayload.name).errors?.minlength ||
+                userEditForm.get(dataPayload.name).errors?.maxlength ||
+                userEditForm.get(dataPayload.name).errors?.required) &&
+                userEditForm.get(dataPayload.name).touched)">
+                {{validator.message}}
+              </div>
+              <div
+                *ngIf="(validator.name === 'pattern' &&
+                userEditForm.get(dataPayload.name).errors?.pattern &&
+                userEditForm.get(dataPayload.name).touched)">
+                {{validator.message}}
+              </div>
+              <div
+                *ngIf="(validator.name === 'require' &&
+                userEditForm.get(dataPayload.name).errors?.required &&
+                userEditForm.get(dataPayload.name).touched)">
+                {{validator.message}}
+              </div>
+              <div
+                *ngIf="(validator.name === 'match' &&
+                userEditForm.get(dataPayload.name).errors?.mismatch &&
+                userEditForm.get(dataPayload.name).touched)">
+                {{validator.message}}
+              </div>
+            </mat-error>
+          </mat-form-field>
+
+      </div>
+      <div class="submit-button-wrapper">
+        <button type="reset" mat-button color="primary" (click)="onNoClick()">Повернутись</button>
+        <span fxFlex></span>
+        <button mat-raised-button color="primary" [disabled]="!userEditForm.valid">Ok</button>
+      </div>
+
+    </form>
+<p *ngIf="data.oldValue" class="mat-body-1">поточне значення: <span class="mat-body-2">{{data.oldValue}}</span></p>
+
+</div>

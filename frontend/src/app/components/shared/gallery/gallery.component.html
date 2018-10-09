@@ -1,0 +1,70 @@
+<div class="app-container">
+  <div class="container">
+
+    <div class="row" fxLayout="row">
+      <div class="cell" fxFlex="100">
+      <h1 class="mat-display-1">Галерея</h1>
+      </div>
+    </div>
+
+    <div class="row" fxLayout="row">
+      <div class="cell" fxFlex="100" *ngFor="let product of productsWithGallery">
+        <mat-card>
+          <mat-card-subtitle>
+            <a mat-button
+               [routerLink]="['/products', 'ch', {outlets: {primary: [product.parent[0], 'details', product._id],
+                    breadcrumb: [product.parent[0], 'details', product._id]}}]"
+               [queryParams]="{name: product.name}"
+               [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+              {{product.name}}
+            </a>
+          </mat-card-subtitle>
+          <div class="row" fxLayout="row">
+            <div fxFlex="100" class="cell text-justify" [innerHTML]="product.description"></div>
+
+            <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33" class="cell"
+                 fxLayout fxLayoutAlign="center center"
+                 *ngFor="let productAsset of product.assets">
+              <mat-card *ngIf="media.isActive('xs')" class="no-padding">
+                <mat-card-header fxLayoutAlign="center center">
+                  <!--<mat-card-subtitle class="design-image-title">{{galleryItem}}</mat-card-subtitle>-->
+                </mat-card-header>
+                <mat-card-content fxLayoutAlign="center center">
+
+                  <img *ngIf="productAsset" class="responsive-image hover-cursor"
+                       (click)="openDialog(productAsset, product.name)"
+                       src="{{
+                      config.imgPath +
+                      config.cloudinary.cloud_name +
+                      '/c_fill,w_590,h_295,f_auto/' +
+                      productAsset}}"
+                       alt="design">
+                </mat-card-content>
+              </mat-card>
+
+
+              <mat-card *ngIf="media.isActive('gt-xs')" class="no-padding" fxFlex.gt-xs="100">
+                <mat-card-header fxLayoutAlign="center center">
+                  <!--<mat-card-subtitle class="design-image-title">{{galleryItem}}</mat-card-subtitle>-->
+                </mat-card-header>
+                <mat-card-content fxLayoutAlign="center center">
+                  <img *ngIf="productAsset" class="responsive-image-stretch hover-cursor"
+                       (click)="openDialog(productAsset, product.name)"
+                       src="{{
+                      config.imgPath +
+                      config.cloudinary.cloud_name +
+                      '/c_fill,w_350,h_175,f_auto/' +
+                      productAsset}}"
+                       alt="design">
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+

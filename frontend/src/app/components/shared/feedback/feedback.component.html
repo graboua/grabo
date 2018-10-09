@@ -1,0 +1,86 @@
+<div class="container">
+
+  <div class="row" fxLayout="column" fxLayout.gt-xs="row">
+    <div fxFlex.gt-xs="10" fxFlex.gt-md="15"></div>
+
+    <div class="cell" fxFlex.gt-xs="80" fxFlex.gt-md="70">
+
+      <div class="centered-container-600">
+        <mat-card  class="form-block">
+          <mat-card-content>
+            <div class="padding-bottom" fxLayout fxLayoutAlign="center center">
+              <img class="responsive-image" src="/assets/images/graboplast_logo.svg" width="367px">
+            </div>
+            <form #fForm="ngForm" [formGroup]="feedbackForm" (submit)="onFeedbackFormSubmit()">
+
+              <div fxLayout="row">
+                <div fxFlexAlign="center" class="mat-icon-wrapper">
+                  <mat-icon color="primary">textsms</mat-icon>
+                </div>
+              <mat-form-field>
+                <textarea rows="5" matInput placeholder="Повідомлення" formControlName="message" required></textarea>
+                <mat-error
+                  *ngIf="(feedbackForm.get('message').errors?.minlength ||
+                                    feedbackForm.get('message').errors?.maxlength ||
+                                    feedbackForm.get('message').errors?.required) &&
+                                    feedbackForm.get('message').touched">
+                  Довжина повинна бути від 3 до 500 символів
+                </mat-error>
+              </mat-form-field>
+              </div>
+
+              <div fxLayout="row">
+                <div fxFlexAlign="center" class="mat-icon-wrapper">
+                  <mat-icon color="primary">account_circle</mat-icon>
+                </div>
+                <mat-form-field>
+                  <input matInput placeholder="Ваше ім'я" formControlName="name" required>
+                  <mat-error
+                    *ngIf="feedbackForm.get('contacts').errors?.required &&
+                        feedbackForm.get('name').touched">
+                    Введіть ім'я
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div fxLayout="row">
+                <div fxFlexAlign="center" class="mat-icon-wrapper">
+                  <mat-icon color="primary">contacts</mat-icon>
+                </div>
+                <mat-form-field>
+                  <input matInput placeholder="Контактний номер або email" formControlName="contacts" required>
+                  <mat-error
+                    *ngIf="feedbackForm.get('contacts').errors?.required &&
+                        feedbackForm.get('contacts').touched">
+                    Введіть котактну інформацію
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <re-captcha [ngClass]="{'display-none':
+          !feedbackForm.get('contacts').valid || !feedbackForm.get('contacts').valid ||
+          !feedbackForm.get('message').valid}"
+                          [formControlName]="'recaptcha'" #recaptchaRef
+                          siteKey="6LelLF0UAAAAAEd0tfLUO02IAuT-_bf0noIJN0nK">
+              </re-captcha>
+              <!--<div *ngIf="!processing" fxLayout="row">-->
+                <!--<object type="image/svg+xml" data="/assets/images/loading.svg" width="50px" height="20px">-->
+                  <!--Loading..-->
+                <!--</object>-->
+              <!--</div>-->
+
+              <div class="submit-button-wrapper">
+                <!--<span fxFlex></span>-->
+                <button mat-raised-button class="full-width" color="primary" [disabled]="!feedbackForm.valid || processing">
+                  <mat-icon *ngIf="!processing">message</mat-icon> Написати нам</button>
+              </div>
+
+            </form>
+          </mat-card-content>
+          <!--<img mat-card-image class="mat-card-image-bottom" src="/assets/images/logo400x140-2.jpg" alt="">-->
+        </mat-card>
+      </div>
+
+
+    </div>
+  </div>
+</div>

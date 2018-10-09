@@ -1,0 +1,149 @@
+<app-header *ngIf="showHeader"></app-header>
+
+<mat-toolbar class="mat-elevation-z4 header toolbar-color">
+  <mat-toolbar-row>
+        <a fxHide.gt-sm="true" mat-button href="">
+          <img src="/assets/images/grabo_logo.svg" width="140px" height="50px" alt="logo">
+        </a>
+
+  <div fxShow="true" fxHide.lt-md="true">
+      <a *ngFor="let mainMenuCommonItem of mainMenuCommonItems" mat-button
+       [routerLink]="['/', mainMenuCommonItem._id, 'ch']"
+       [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+       {{mainMenuCommonItem.name}}
+    </a>
+  </div>
+  <div fxFlex></div>
+  <div *ngIf="!showHeader" fxShow="true" fxHide.lt-md="true">
+    <a mat-button class="muted"
+    href="tel:+380956535511">
+    <mat-icon>phone_android</mat-icon> 095 653 55 11
+    </a>
+  </div>
+
+
+  <div fxShow="true" fxHide.lt-md="true">
+
+
+    <button *ngIf="user"
+            mat-button [matMenuTriggerFor]="settingsMenu" #settingsMenuTrigger="matMenuTrigger"
+            (mouseover)="onSettingsMenuMouseover()">
+      <mat-icon>settings</mat-icon><span> {{user.login}}</span>
+    </button>
+
+    <mat-menu #settingsMenu="matMenu" xPosition="after" yPosition="above" [overlapTrigger]="false">
+      <span (mouseleave)="onSettingsMenuMouseleave()">
+      <a *ngIf="user"
+         mat-menu-item [routerLink]="['/user/profile']"
+         [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>account_circle</mat-icon><span>Профіль</span></a>
+      <a *ngIf="user && user?.role === 'manager' || user?.role === 'admin'"
+         mat-menu-item [routerLink]="['/dashboard']"
+         [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>settings</mat-icon><span>Dashboard</span></a>
+      </span>
+    </mat-menu>
+
+    <a *ngIf='user'
+       mat-button (click)="userLocalLogout()"><mat-icon>exit_to_app</mat-icon> Вихід</a>
+  </div>
+
+  <div class="menu-button" fxShow="true" fxHide.gt-sm="true">
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon *ngIf="sidenav.opened">format_indent_increase</mat-icon>
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+    </button>
+  </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav fxLayout="column" class="theme-dark"
+                 position="end" class="sidenav" role="navigation" mode="side">
+      <div fxLayout="column">
+        <mat-nav-list>
+          <mat-list-item>
+            <app-design-searcher [closer]="true"></app-design-searcher>
+          </mat-list-item>
+          <mat-list-item *ngFor="let mainMenuCommonItem of mainMenuCommonItems">
+            <a matLine
+               [routerLinkActive]="['muted']" [routerLinkActiveOptions]="{exact: true}"
+               [routerLink]="['/', mainMenuCommonItem._id, 'ch']" (click)="sidenav.toggle()">
+              {{mainMenuCommonItem.name}}
+            </a>
+          </mat-list-item>
+
+          <mat-expansion-panel *ngIf="user" class="mat-elevation-z0">
+            <mat-expansion-panel-header class="sidenav-expansion-panel">
+              <mat-panel-title>
+                <mat-list-item>
+                  <mat-icon matListIcon>settings</mat-icon>
+                  <span matLine>{{user.login}}</span>
+                </mat-list-item>
+              </mat-panel-title>
+
+            </mat-expansion-panel-header>
+            <mat-list-item *ngIf="user">
+            <mat-icon matListIcon>account_circle</mat-icon>
+            <a matLine [routerLink]="['/user/profile']"
+               [routerLinkActive]="['muted']" [routerLinkActiveOptions]="{exact: true}" (click)="sidenav.toggle()">
+              Профіль</a>
+              </mat-list-item>
+            <mat-list-item *ngIf="user && user?.role === 'manager' || user?.role === 'admin'">
+            <mat-icon matListIcon>settings</mat-icon>
+            <a matLine [routerLink]="['/dashboard']"
+               [routerLinkActive]="['muted']" [routerLinkActiveOptions]="{exact: true}" (click)="sidenav.toggle()">
+              Dashboard</a>
+                </mat-list-item>
+          </mat-expansion-panel>
+
+          <!--<mat-list-item *ngIf='!user'>-->
+            <!--<a matLine-->
+               <!--[routerLinkActive]="['muted']" [routerLinkActiveOptions]="{exact: true}"-->
+               <!--[routerLink]="['/user/login']" (click)="sidenav.toggle()">Вхід</a>-->
+          <!--</mat-list-item>-->
+          <mat-list-item *ngIf='user'>
+            <a matLine
+               (click)="userLocalLogout()" (click)="sidenav.toggle()">
+              Вихід
+            </a>
+            <mat-icon matListIcon>exit_to_app</mat-icon>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <!--Example of grid-->
+
+    <!--<div class="container">-->
+      <!--<div class="row" fxLayout="column" fxLayout.gt-xs="row">-->
+        <!--<div class="cell" fxFlex.gt-xs="50" fxFlex.gt-sm="33.3" fxFlex.gt-md="25" *ngFor="let i of count" >-->
+          <!--<div class="item">{{i.text}}</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+      <!--<div class="container">-->
+       <router-outlet></router-outlet>
+      <!--</div>-->
+
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+  <mat-toolbar *ngIf="showHeader" class="mat-elevation-z16 footer" color="primary">
+    <a fxHide.gt-sm="true" mat-button class="muted"
+       href="tel:+380956535511">
+      <mat-icon>phone_android</mat-icon> 095 653 55 11
+    </a>
+    <div fxFlex></div>
+      <!--<span class="mat-title toolbar-branding">-->
+       <!---->
+      <!--</span>-->
+        <a mat-button [routerLink]="['/feedback']" class="muted"
+           [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+          <mat-icon>question_answer</mat-icon> Задати питання
+        </a>
+  </mat-toolbar>

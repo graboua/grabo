@@ -1,0 +1,8 @@
+@import '~@angular/material/theming';
+
+$custom-mat-list-typography: mat-typography-config(
+        $font-family: 'Roboto, monospace',
+        $subheading-2: mat-typography-level(14px, 20px, 400)  //use mat-body-1 style for mat-list items (instead subheading-2)
+);
+
+@include mat-list-typography($custom-mat-list-typography);

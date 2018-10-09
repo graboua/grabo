@@ -1,0 +1,13 @@
+<form [formGroup]="findDesignForm" novalidate>
+  <mat-form-field >
+    <!-- <mat-placeholder><mat-icon>search</mat-icon> Знайти дизайн</mat-placeholder> -->
+    <mat-label><mat-icon>search</mat-icon> Знайти дизайн</mat-label>
+    <input type="text" matInput formControlName="findDesign" [matAutocomplete]="designSelector">
+    <mat-autocomplete #designSelector="matAutocomplete">
+      <mat-option *ngFor="let filteredDesign of filteredDesigns | async"
+                  (click)="onSelectDesign(_getDesign(filteredDesign), closer)" [value]="filteredDesign">
+        {{filteredDesign}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

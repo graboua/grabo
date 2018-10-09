@@ -1,0 +1,52 @@
+<mat-sidenav-container>
+  <mat-sidenav  class="sidenav" #sidenav mode="side" [opened]="media.isActive('gt-sm')">
+    <!--<p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>-->
+    <!--<p>-->
+
+    <!--<div class="menu-button" fxShow="true" fxHide.gt-sm="true">-->
+      <!--<button mat-button (click)="sidenav.toggle()">-->
+        <!--<mat-icon>arrow_left</mat-icon>-->
+      <!--</button>-->
+    <!--</div>-->
+    <div class="container-sidenav">
+      <mat-toolbar class="mat-elevation-z2">
+        <mat-toolbar-row fxShow="true" fxHide.gt-sm="true" class="sidenav-mat-toolbar-row">
+          <a  mat-button (click)="sidenav.toggle()"><mat-icon>arrow_left</mat-icon></a>
+        </mat-toolbar-row>
+        <router-outlet name="dashboardSidenav"></router-outlet>
+      </mat-toolbar>
+    </div>
+      <!--<mat-radio-group class="example-radio-group" [formControl]="mode">-->
+        <!--<label>Mode:</label>-->
+        <!--<mat-radio-button value="over">Over</mat-radio-button>-->
+        <!--<mat-radio-button value="side">Side</mat-radio-button>-->
+        <!--<mat-radio-button value="push">Push</mat-radio-button>-->
+      <!--</mat-radio-group>-->
+    <!--</p>-->
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <!--<p><button mat-button (click)="sidenav.toggle()" >Меню</button></p>-->
+    <!--<p>-->
+
+    <!--*ngIf="!sidenav.opened"-->
+    <div *ngIf="!sidenav.opened" class="menu-button" fxShow="true" fxHide.gt-sm="true">
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>arrow_right</mat-icon>
+    </button>
+    </div>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+      <!--<mat-radio-group class="example-radio-group" [formControl]="mode">-->
+        <!--<label>Mode:</label>-->
+        <!--<mat-radio-button value="over">Over</mat-radio-button>-->
+        <!--<mat-radio-button value="side">Side</mat-radio-button>-->
+        <!--<mat-radio-button value="push">Push</mat-radio-button>-->
+      <!--</mat-radio-group>-->
+    <!--</p>-->
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,60 @@
+<div class="row" fxLayout="row">
+  <div class="cell" fxFlex="100">
+    <!--<div class="item full-width-container">-->
+      <!--<mat-card>-->
+        <!--<mat-card-header></mat-card-header>-->
+        <!--<mat-card-title></mat-card-title>-->
+
+        <!--<mat-card-content>-->
+          <div class="container">
+            <div class="row" fxLayout="row">
+              <div class="cell">
+                <h2 class="mat-h2">Редактор дизайнів</h2>
+              </div>
+              <div class="cell" fxFlex>
+                  <button mat-mini-fab color="primary" type="button"
+                [routerLink]="['/dashboard/designs_editor_new']"
+                [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </div>
+
+
+            <div class="row" fxLayout="column" fxLayout.gt-xs="row">
+
+              <!--<div class="cell" fxFlex.sm="50" fxFlex.md="33.3" fxFlex.gt-md="20">-->
+                <!--<div class="preview-img-wrapper">-->
+                  <!--<img src="{{-->
+                        <!--config.imgPath +-->
+                        <!--config.cloudinary.cloud_name +-->
+                        <!--'/c_fill,w_180,h_180,f_auto/' +-->
+                        <!--config.defaultProductImg}}" alt="product">-->
+
+                  <!--<div class="preview-div-processing">-->
+                    <!--<div class="button-wrapper">-->
+                      <!--<button mat-mini-fab color="primary" type="button"-->
+                              <!--[routerLink]="['/dashboard/designs_editor_new']"-->
+                              <!--[routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">-->
+                        <!--<mat-icon>add</mat-icon>-->
+                      <!--</button>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+              <div *ngFor="let design of designs" class="cell"
+                   fxFlex.sm="50" fxFlex.md="33.3" fxFlex.gt-md="25">
+                <app-design-item [design]="design"></app-design-item>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        <!--</mat-card-content>-->
+      <!--</mat-card>-->
+    <!--</div>-->
+  </div>
+</div>

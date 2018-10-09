@@ -1,0 +1,75 @@
+<mat-card>
+  <mat-card-content>
+    <div class="mat-card-wide-image" fxLayout="row">
+      <div *ngIf="product" fxFlex="100">
+
+        <img *ngIf="media.isActive('gt-sm')" class="responsive-image-stretch" src="{{
+              config.imgPath +
+              config.cloudinary.cloud_name +
+              '/c_fill,w_400,h_200,f_auto/' +
+              product.briefImage}}"
+             alt="Image">
+        <img *ngIf="media.isActive('sm')" class="responsive-image-stretch" src="{{
+              config.imgPath +
+              config.cloudinary.cloud_name +
+              '/c_fill,w_460,h_230,f_auto/' +
+              product.briefImage}}"
+             alt="Image">
+        <img *ngIf="media.isActive('xs')" class="responsive-image-stretch" src="{{
+            config.imgPath +
+            config.cloudinary.cloud_name +
+            '/c_fill,w_590,h_295,f_auto/' +
+            product.briefImage}}"
+             alt="Image">
+      </div>
+
+      <div *ngIf="descendant" fxFlex="100">
+
+        <img *ngIf="media.isActive('gt-sm')" class="responsive-image-stretch" src="{{
+              config.imgPath +
+              config.cloudinary.cloud_name +
+              '/c_fill,w_400,h_200,f_auto/' +
+              descendant.assets[0]}}"
+             alt="Image">
+        <img *ngIf="media.isActive('sm')" class="responsive-image-stretch" src="{{
+              config.imgPath +
+              config.cloudinary.cloud_name +
+              '/c_fill,w_460,h_230,f_auto/' +
+              descendant.assets[0]}}"
+             alt="Image">
+        <img *ngIf="media.isActive('xs')" class="responsive-image-stretch" src="{{
+            config.imgPath +
+            config.cloudinary.cloud_name +
+            '/c_fill,w_590,h_295,f_auto/' +
+            descendant.assets[0]}}"
+             alt="Image">
+      </div>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions fxLayout="row">
+    <div fxFlex>
+      <!--using with catalog, when no subcategories (product level)
+      category_id for breadcrumb-->
+      <a *ngIf="!descendant && category_id" mat-button
+         [routerLink]="['/products', 'ch', {outlets: {primary: [category_id, 'details', product._id],
+         breadcrumb: [category_id, 'details', product._id]}}]"
+         [queryParams]="{name: product.name}"
+         [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+        {{product.name}}
+      </a>
+      <!--using with dashboard-->
+      <a *ngIf="!descendant && !category_id" mat-button
+         [routerLink]="['/dashboard', 'products_editor_edit', parentCategory_id, parentCategoryName, product._id]"
+         [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+        {{product.name}}
+      </a>
+      <!--using with catalog, when subcategories present-->
+      <a *ngIf="descendant" mat-button
+         [routerLink]="['/products', 'ch', {outlets: {primary: [descendant._id], breadcrumb: [descendant._id]}}]"
+         [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+        {{descendant.name}}
+      </a>
+    </div>
+  </mat-card-actions>
+</mat-card>

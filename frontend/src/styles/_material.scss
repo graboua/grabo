@@ -1,0 +1,115 @@
+@import '~@angular/material/theming';
+
+$mat-custom-darker: (
+        50 : #ebeef1,
+        100 : #ced5db,
+        200 : #aeb9c4,
+        300 : #8d9dac,
+        400 : #74889a,
+        500 : #5c7388,
+        600 : #546b80,
+        700 : #4a6075,
+        800 : #41566b,
+        900 : #304358,
+        A100 : #a6cfff,
+        A200 : #73b3ff,
+        A400 : #4098ff,
+        A700 : #268aff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #ffffff,
+        )
+);
+
+$mat-custom-lighter: (
+        50 : #f7f8f9,
+        100 : #ecedef,
+        200 : #dfe1e4,
+        300 : #d2d4d9,
+        400 : #c9cbd1,
+        500 : #bfc2c9,
+        600 : #b9bcc3,
+        700 : #b1b4bc,
+        800 : #a9acb5,
+        900 : #9b9fa9,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #e6edff,
+        A700 : #cddaff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #000000,
+                600 : #000000,
+                700 : #000000,
+                800 : #000000,
+                900 : #000000,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$mat-custom-warn: (
+        50 : #f9e0e0,
+        100 : #f0b3b3,
+        200 : #e68080,
+        300 : #db4d4d,
+        400 : #d42626,
+        500 : #cc0000,
+        600 : #c70000,
+        700 : #c00000,
+        800 : #b90000,
+        900 : #ad0000,
+        A100 : #ffd7d7,
+        A200 : #ffa4a4,
+        A400 : #ff7171,
+        A700 : #ff5858,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #ffffff,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+@include mat-core();
+$primary: mat-palette($mat-custom-lighter);
+$accent: mat-palette($mat-custom-darker);
+$warn: mat-palette($mat-custom-warn);
+$theme-light: mat-light-theme($primary, $accent, $warn);
+$theme-dark: mat-dark-theme($primary, $accent, $warn);
+
+$_primary: mat-color($primary);
+$_accent: mat-color($accent);
+$_warn: mat-color($warn);
+
+@include angular-material-theme($theme-light);
+
+

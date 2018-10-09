@@ -1,0 +1,31 @@
+<div class="app-container">
+
+  <div class="container" fxHide.lt-md="true">
+    <div class="row primary-background-light">
+      <div class="cell">
+        <a href="">
+          <img src="/assets/images/grabofloors_logo.svg" width="250px" height="90px" alt="logo">
+        </a>
+      </div>
+      <div fxFlex></div>
+      <div class="cell">
+        <app-design-searcher [closer]="false"></app-design-searcher>
+      </div>
+
+      <div class="cell" fxLayout="column">
+        <div>
+          <a mat-button [routerLink]="['/feedback']" class="muted"
+             [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+            <mat-icon>question_answer</mat-icon> Задати питання
+          </a>
+        </div>
+        <div>
+            <a mat-button class="muted"
+          href="tel:+380956535511">
+         <mat-icon>phone_android</mat-icon> 095 653 55 11
+       </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

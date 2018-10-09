@@ -1,0 +1,33 @@
+<div id="home-container">
+  <div id="home-left">
+    <img src="/assets/images/grabo_logo_full2.svg" id="home-logo" alt="logo">
+    <!--<h1 class="mat-h4">покриття на будь-яку підлогу</h1>-->
+    <div>
+      <a mat-flat-button color="primary" class="radius-5" href="/usages/ch" id="home-action">Підібрати</a>
+      <!--<button mat-fab-button class="radius-5" (click)="onScroll()">Down</button>-->
+      <button *ngIf="media.isActive('lt-md')" color="primary" mat-mini-fab (click)="onScroll()" id="scroll-down-btn"><mat-icon>keyboard_arrow_down</mat-icon></button>
+    </div>
+  </div>
+  <div id="home-right" #scrollPoint>
+    <app-design-searcher [closer]="false"></app-design-searcher>
+    <app-crsl></app-crsl>
+  </div>
+  <div id="home-bottom">
+    <div fxLayout="row full-width">
+      <div fxFlex="10"></div>
+      <div class="row wrap full-width" fxFlex="80" fxLayout="row" fxLayoutAlign="space-between">
+        <div class="cell-padding" fxFlex="1 1 auto" *ngFor="let descendant of descendants" fxLayout="row">
+          <a fxFlex="1 1 auto" mat-stroked-button class="radius-5 text-center" color="accent"
+             [routerLink]="['/products', 'ch', {outlets: {primary: [descendant._id], breadcrumb: [descendant._id]}}]"
+             [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
+             {{descendant.name}}
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

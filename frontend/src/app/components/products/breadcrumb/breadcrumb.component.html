@@ -1,0 +1,32 @@
+<div class="row" fxLayout>
+  <div class="cell wrap" fxFlex fxLayout="row">
+    <div>
+      <a mat-button class="breadcrumb-button"
+         [routerLink]="['/products', 'ch']"
+         [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon>home</mat-icon> <mat-icon>keyboard_arrow_right</mat-icon>
+        <!--<object *ngIf="processing" type="image/svg+xml" data="/assets/images/loading.svg" width="50px" height="20px">-->
+          <!--Loading..-->
+        <!--</object>-->
+      </a>
+    </div>
+
+    <div >
+
+    </div>
+
+    <div *ngFor="let hierarchyCategoryItem of hierarchyCategory">
+      <a mat-button class="breadcrumb-button" *ngIf="!processing"
+         [routerLink]="['/products', 'ch', {outlets: {primary: [hierarchyCategoryItem._id], breadcrumb: [hierarchyCategoryItem._id]}}]"
+         [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
+        <!-- <mat-icon>folder</mat-icon>  -->
+        {{hierarchyCategoryItem.name}}<mat-icon>keyboard_arrow_right</mat-icon></a>
+    </div>
+    <div *ngIf="!processing" fxHide.lt-md>
+      <button *ngIf="productName" mat-button
+         class="accent" disabled>
+        <mat-icon class="accent">insert_photo</mat-icon> {{productName}}</button>
+    </div>
+  </div>
+
+</div>

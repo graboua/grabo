@@ -1,0 +1,63 @@
+<div class="row" fxLayout="column" fxLayout.gt-xs="row">
+  <div fxFlex.gt-xs="20" fxFlex.gt-md="30"></div>
+
+  <div class="cell" fxFlex.gt-xs="60" fxFlex.gt-md="40">
+    <!--<div class="cell" fxFlex.gt-xs="60" fxFlex.gt-md="40" fxFlexOffset.gt-xs="20" fxFlexOffset.gt-md="30">-->
+
+  <div class="centered-container">
+    <mat-card  class="form-block">
+      <mat-card-content>
+        <div class="padding-bottom" fxLayout fxLayoutAlign="center center">
+          <img class="responsive-image" src="/assets/images/graboplast_logo.svg" width="367px">
+        </div>
+        <form [formGroup]="userLoginForm" (submit)="onUserLoginSubmit()">
+
+          <div fxLayout="row">
+            <div fxFlexAlign="center" class="mat-icon-wrapper">
+              <mat-icon color="primary">account_circle</mat-icon>
+            </div>
+            <mat-form-field>
+              <input matInput placeholder="Логін" formControlName="login" required>
+              <mat-error
+                *ngIf="userLoginForm.get('login').errors?.required &&
+                      userLoginForm.get('login').touched">
+                      Введіть логін
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row">
+            <div fxFlexAlign="center" class="mat-icon-wrapper">
+              <mat-icon color="primary">lock_outline</mat-icon>
+            </div>
+            <mat-form-field>
+              <input matInput placeholder="Пароль" formControlName="password"
+                     required [type]="hidePassword ? 'password' : 'text'">
+              <mat-icon class="muted" matSuffix (click)="hidePassword = !hidePassword">
+                {{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error
+                *ngIf="userLoginForm.get('password').errors?.required &&
+                          userLoginForm.get('password').touched">
+                Введіть пароль
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="submit-button-wrapper">
+            <!--<span fxFlex></span>-->
+            <button mat-raised-button class="full-width" color="primary" [disabled]="!userLoginForm.valid">Увійти</button>
+          </div>
+          <div fxLayout="row" class="links-wrapper">
+            <!--<a [routerLink]="['/user/create']">Зареєструватись</a>-->
+            <span fxFlex></span>
+            <a [routerLink]="['/user/password-reset']">Забули пароль</a>
+          </div>
+        </form>
+      </mat-card-content>
+      <!--<img mat-card-image class="mat-card-image-bottom" src="/assets/images/logo400x140-2.jpg" alt="">-->
+    </mat-card>
+  </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{
+  "port": 8080,
+  "defaultAvatarPath": "https://res.cloudinary.com/hmm6pjfgk/default-avatar180x180.png",
+  "defaultProductImgPath": "https://res.cloudinary.com/hmm6pjfgk/default-product180x180.png",
+  "cookieCsrfOptions": {
+    "secure": false,
+    "httpOnly": false,
+    "maxAge": 1800000
+  },
+  "permissions": {
+    "admin": ["casual", "guest", "user", "manager", "admin"],
+    "manager": ["casual", "guest", "user", "manager"],
+    "user": ["casual", "guest", "user"],
+    "guest": ["casual", "guest"],
+    "casual": ["casual"]
+  }
+
+}

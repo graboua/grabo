@@ -1,0 +1,79 @@
+<div class="row" fxLayout="row">
+  <div class="cell" fxFlex="100">
+    <div class="item full-width-container">
+      <mat-card  class="form-block">
+        <mat-card-header></mat-card-header>
+        <mat-card-title></mat-card-title>
+
+        <mat-card-content>
+          <div class="container">
+            <div class="row">
+              <div class="cell">
+                <h2 class="mat-h2">Групове додавання дизайнів
+
+                </h2>
+              </div>
+            </div>
+            <div class="row" fxLayout="column" fxLayout.gt-xs="row">
+              <div class="cell" fxFlex="33.3">
+                <p class="mat-body">Вибрано файлів: {{totalFiles}}</p>
+              </div>
+              <div class="cell" fxFlex="33.3">
+                <p class="mat-body">Відхилено файлів: {{rejectedFiles.length}}</p>
+              </div>
+              <div class="cell" fxFlex="33.3">
+                <p class="mat-body">Успішно: {{successFiles.length}}</p>
+              </div>
+            </div>
+
+            <div class="row" fxLayout="row">
+              <p *ngFor="let successFile of successFiles" class="cell" fxFlex>
+                {{successFile}}
+              </p>
+            </div>
+
+            <form [formGroup]="designForm" #f="ngForm" (submit)="onDesignFormSubmit()" novalidate>
+
+              <div class="row" fxLayout="column" fxLayout.gt-xs="row">
+                     <div class="cell" fxFlex="100">
+                      <mat-form-field>
+                        <mat-select placeholder="Структура" formControlName="structure" required>
+                          <mat-option *ngFor="let struct of config.designStructure" [value]="struct">
+                            {{struct}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-error
+                          *ngIf="designForm.get('structure').errors?.required &&
+                            designForm.get('structure').touched">
+                          Виберіть категорію
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+
+                <input #inputFile type="file" multiple name="designFile[]" (change)="addPictures($event)"
+                       accept=".jpg, .jpe, .jpeg, .bmp, .webp, .png, .gif, .svg" style="display:none;">
+
+              </div>
+            </form>
+
+
+          <div class="submit-button-wrapper row" fxLayout="row">
+            <div class="cell" fxFlex="60">
+              <button mat-raised-button color="primary" class="full-width" type="button"
+                      (click)="inputFile.click();"
+                      [disabled]="!designForm.valid || processingLoadFile">
+                <mat-icon> <mat-spinner *ngIf="processingLoadFile" [diameter]="24"></mat-spinner> </mat-icon>
+                 Вибрати файли (максимум 50)</button>
+            </div>
+            <div class="cell" fxFlex="40">
+              <button mat-raised-button  type="button" (click)="goBack()" class="full-width"
+                      [disabled]="processingLoadFile">Повернутись</button>
+            </div>
+          </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

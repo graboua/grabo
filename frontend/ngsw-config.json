@@ -1,0 +1,29 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html",
+        "/assets/images/g_logo.svg",
+        "/assets/images/grabo_logo.svg",
+        "/assets/images/grabo_logo_full2.svg",
+        "/assets/images/grabofloors_logo.svg",
+        "/assets/images/bg3.svg",
+        "/*.css",
+        "/*.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }]
+}

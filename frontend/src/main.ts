@@ -1,0 +1,27 @@
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+// import 'hammerjs';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .then(() => {
+  if ('serviceWorker' in navigator && environment.production) {
+    navigator.serviceWorker.register('ngsw-worker.js');
+  }
+})
+  .catch(err => console.log('bootstrapModule error', err));
+// platformBrowserDynamic().bootstrapModule(AppModule)
+//   .then(() => {
+//      if (environment.production && 'serviceWorker' in navigator) {
+//         navigator.serviceWorker.getRegistration()
+//           .then(active => !active && navigator.serviceWorker.register('/ngsw-worker.js'))
+//           .catch(err => console.log('sw error', err));
+//         }
+//       })
+//     .catch(err => console.log('bootstrapModule error', err));

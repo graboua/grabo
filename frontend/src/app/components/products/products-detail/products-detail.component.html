@@ -1,0 +1,19 @@
+<div class="row" fxLayout="row">
+
+  <!-- <div *ngIf="!product" style="width: 100vw; text-align: center;">
+    <div style="display: inline-block;">
+      <object type="image/svg+xml" data="/assets/images/loading.svg" width="40px" height="16px">
+        Loading..
+      </object>
+    </div>
+  </div> -->
+
+  <div class="cell-menu" fxFlex.lt-md="100" fxFlex.gt-sm="250px">
+    <app-products-detail-side [siblings]="siblings" [category_id]="category_id"></app-products-detail-side>
+  </div>
+  <div class="cell" fxFlex.lt-md="100" fxFlex.gt-sm="calc(100%-250px)">
+
+    <app-product-item-detail *ngIf="product" [product]="product" [category_id]="category_id"></app-product-item-detail>
+  </div>
+
+</div>

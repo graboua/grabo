@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 // check cookie, add req.csrfToken(),
-app.use(csrf({cookie: true})); //If the "cookie" option is not false, then this option does nothing
+app.use(csrf({cookie: false})); //If the "cookie" option is not false, then this option does nothing
 // set cookie
 app.use(csrfCookie);
 

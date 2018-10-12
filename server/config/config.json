@@ -4,7 +4,7 @@
   "defaultProductImgPath": "https://res.cloudinary.com/hmm6pjfgk/default-product180x180.png",
   "cookieCsrfOptions": {
     "secure": false,
-    "SameSite": "Strict",
+    "sameSite": "Strict",
     "httpOnly": false,
     "maxAge": 1800000
   },

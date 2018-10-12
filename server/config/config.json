@@ -5,7 +5,7 @@
   "cookieCsrfOptions": {
     "secure": true,
     "sameSite": "Strict",
-    "httpOnly": true,
+    "httpOnly": false,
     "maxAge": 1800000
   },
   "permissions": {

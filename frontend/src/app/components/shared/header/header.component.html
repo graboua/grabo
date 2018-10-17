@@ -3,7 +3,7 @@
   <div class="container" fxHide.lt-md="true">
     <div class="row primary-background-light">
       <div class="cell">
-        <a href="">
+        <a href=""  aria-label="home">
           <img src="/assets/images/grabofloors_logo.svg" width="250px" height="90px" alt="logo">
         </a>
       </div>
@@ -14,13 +14,13 @@
 
       <div class="cell" fxLayout="column">
         <div>
-          <a mat-button [routerLink]="['/feedback']" class="muted"
+          <a mat-button [routerLink]="['/feedback']" class="muted"  aria-label="ask"
              [routerLinkActive]="['accent']" [routerLinkActiveOptions]="{exact: true}">
             <mat-icon>question_answer</mat-icon> Задати питання
           </a>
         </div>
         <div>
-            <a mat-button class="muted"
+            <a mat-button class="muted"  aria-label="call"
           href="tel:+380956535511">
          <mat-icon>phone_android</mat-icon> 095 653 55 11
        </a>

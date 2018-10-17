@@ -7,12 +7,6 @@
               <div fxFlex="100" fxLayoutAlign="center center">
                   <img id="home-logo" src="/assets/images/grabo_logo_full2.svg" alt="logo">
               </div>
-              <!-- <h1 class="mat-h4">покриття на будь-яку підлогу</h1> -->
-              <!-- <div> -->
-                <!-- <button mat-fab-button class="radius-5" (click)="onScroll()">Down</button> -->
-                <!-- <button *ngIf="media.isActive('lt-md')" color="primary" mat-mini-fab (click)="onScroll()" id="scroll-down-btn"> -->
-                  <!-- <mat-icon>keyboard_arrow_down</mat-icon></button> -->
-              <!-- </div> -->
               <div class="wrap" fxFlex="100" fxLayoutAlign="end start" fxLayout="row">
                 <div class="padding-bottom" fxFlex="100"  fxLayoutAlign="start center">
                     <app-design-searcher [closer]="false"></app-design-searcher>
@@ -22,11 +16,11 @@
               </div>
               <div class="wrap" fxFlex="100" fxLayoutAlign="center center">
                   <div class="padding-bottom " fxFlex="100" fxLayoutAlign="start center">
-                      <a mat-button class="radius-5 muted" [routerLink]="['/usages/ch']">
+                      <a mat-button class="radius-5 muted" [routerLink]="['/usages/ch']" aria-label="choose">
                         <mat-icon>collections</mat-icon> Підібрати покриття</a>
                   </div>
                   <div class="padding-bottom" fxFlex="100" fxLayoutAlign="start end">
-                      <a mat-button class="radius-5 muted" [routerLink]="['/feedback']">
+                      <a mat-button class="radius-5 muted" [routerLink]="['/feedback']" aria-label="ask">
                         <mat-icon>question_answer</mat-icon> Задати питання</a>
                     </div>
               </div>
@@ -34,7 +28,8 @@
         <div class="cell" fxHide.lt-md="100" fxFlex.gt-sm=50 fxLayout="row" fxLayoutAlign="center center">
                 <app-crsl></app-crsl>
         </div>
-        <button  mat-icon-button (click)="onScrollToCenter()" id="scroll-to-center-btn"><mat-icon>keyboard_arrow_down</mat-icon></button>
+        <button mat-icon-button aria-label="scroll"
+        (click)="onScrollToCenter()" id="scroll-to-center-btn"><mat-icon>keyboard_arrow_down</mat-icon></button>
       </div>
 
       <div id="home-center" #scrollPointCenter>
@@ -54,20 +49,30 @@
                 <a fxFlex="100" fxLayoutAlign="center center"
                 [routerLink]="['/products', 'ch', {outlets: {primary: [descendant._id], breadcrumb: [descendant._id]}}]"
                 [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
-                <img *ngIf="media.isActive('gt-sm')"
+                <!-- <img *ngIf="media.isActive('gt-sm')"
                       class="responsive-image" src="{{
                       config.imgPath +
                       config.cloudinary.cloud_name +
                       '/c_fill,w_680,h_340,f_auto/e_saturation:-70/' +
                       descendant.assets[0]}}"
-                      alt="designImage">
+                      alt="Category image">
                 <img *ngIf="media.isActive('lt-md')"
                       class="responsive-image" src="{{
                       config.imgPath +
                       config.cloudinary.cloud_name +
                       '/c_fill,w_600,h_300,f_auto/e_saturation:-70/' +
                       descendant.assets[0]}}"
-                      alt="designImage">
+                      alt="Category image"> -->
+                <img *ngIf="media.isActive('gt-sm')"
+                      class="responsive-image" src="{{
+                        '/assets/images/home-page/' +
+                        descendant.assets[0] + '_680x340.jpg'}}"
+                      alt="Category image">
+                <img *ngIf="media.isActive('lt-md')"
+                      class="responsive-image" src="{{
+                        '/assets/images/home-page/' +
+                        descendant.assets[0] + '_600x300.jpg'}}"
+                      alt="Category image">
                 </a>
 
                 
@@ -87,32 +92,33 @@
       </div> -->
 
       <div class="row" fxLayout="row" fxLayoutAlign.xs="center" fxLayoutAlign.sm="start" fxLayoutAlign.gt-sm="center">
-        <button mat-icon-button (click)="onScrollTop()" id="scroll-top-btn"><mat-icon>keyboard_arrow_up</mat-icon></button>
+        <button mat-icon-button (click)="onScrollTop()" aria-label="scroll" 
+        id="scroll-top-btn"><mat-icon>keyboard_arrow_up</mat-icon></button>
         <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33.3">
                 <h3 class="mat-h2 text-align-center address">Головний офіс</h3>
                 <p class="text-justify muted mat-body address">
                   Адреса: м. Дніпро, вул. Булата, 12
                 </p>
                 <p class="text-justify muted">
-                  <a mat-button class="muted"
+                  <a mat-button class="muted" aria-label="call"
                     href="tel:+380567339675">
                     <mat-icon>phone</mat-icon> тел/факс 056 733 96 75
                   </a>
                 </p>
                 <p class="text-justify muted">
-                  <a mat-button class="muted"
+                  <a mat-button class="muted" aria-label="call"
                     href="tel:+380956535511">
                     <mat-icon>phone_android</mat-icon> vodafone 095 653 55 11
                   </a>
                 </p>
                 <p class="text-justify muted">
-                  <a mat-button class="muted"
+                  <a mat-button class="muted" aria-label="call"
                     href="tel:+380677029230">
                     <mat-icon>phone_android</mat-icon> kyivstar 067 702 92 30
                   </a>
                 </p>
                 <p class="text-justify muted">
-                  <a mat-button class="muted"
+                  <a mat-button class="muted" aria-label="email"
                     href="mailto: trice.pvc@gmail.com">
                     <mat-icon>mail</mat-icon> trice.pvc@gmail.com
                   </a>
@@ -121,13 +127,13 @@
         <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33.3">
                     <h3 class="mat-h2 text-align-center address">Західний регіон</h3>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="call"
                         href="tel:+380985443968">
                         <mat-icon>phone_android</mat-icon> 098 544 39 68
                       </a>
                     </p>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="email"
                         href="mailto: linoleum.ua@gmail.com">
                         <mat-icon>mail</mat-icon> linoleum.ua@gmail.com
                       </a>
@@ -140,31 +146,31 @@
                       Адреса: м.Київ, пр. Соборності, 19/офіс 205
                     </p>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="call"
                         href="tel:+380443929290">
                         <mat-icon>phone</mat-icon> тел/факс 044 392 92 90
                       </a>
                     </p>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="call"
                         href="tel:+380672081302">
                         <mat-icon>phone_android</mat-icon> 067 208 13 02
                       </a>
                     </p>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="call"
                         href="tel:+380672080606">
                         <mat-icon>phone_android</mat-icon> 067 208 06 06
                       </a>
                     </p>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="call"
                         href="tel:+3805086521236">
                         <mat-icon>phone_android</mat-icon> 050 865 21 23
                       </a>
                     </p>
                     <p class="text-justify muted">
-                      <a mat-button class="muted"
+                      <a mat-button class="muted" aria-label="web"
                         href="https://www.vivadi.com.ua" rel="noreferrer" target="_blank">
                         <mat-icon>screen_share</mat-icon> www.vivadi.com.ua
                       </a>

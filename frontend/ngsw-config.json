@@ -12,7 +12,6 @@
         "/assets/images/grabo_logo_full2.svg",
         "/assets/images/grabofloors_logo.svg",
         "/assets/images/bg3.svg",
-        "/assets/images/home-page/*.jpg",
         "/*.css",
         "/*.js"
       ]

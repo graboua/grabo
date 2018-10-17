@@ -10,7 +10,7 @@
 
   <mat-step *ngFor="let banner of homeBanner">
     <!--<img *ngIf="media.isActive('md')" class="responsive-image-stretch" src="{{-->
-    <!-- <img *ngIf="media.isActive('gt-md') || media.isActive('sm')" class="responsive-image" src="{{
+    <img *ngIf="media.isActive('gt-md') || media.isActive('sm')" class="responsive-image" src="{{
             config.imgPath +
             config.cloudinary.cloud_name +
             '/c_fill,w_760,h_350,f_auto/' +
@@ -21,15 +21,15 @@
             config.cloudinary.cloud_name +
             '/c_fill,w_550,h_250,f_auto/' +
             banner + '.jpg'}}"
-         alt="Image"> -->
-    <img *ngIf="media.isActive('gt-md') || media.isActive('sm')" class="responsive-image" src="{{
+         alt="Image">
+    <!-- <img *ngIf="media.isActive('gt-md') || media.isActive('sm')" class="responsive-image" src="{{
           '/assets/images/home-page/' +
           banner + '_760x350.jpg'}}"
        alt="Image">
     <img *ngIf="media.isActive('md') || media.isActive('xs')" class="responsive-image" src="{{
           '/assets/images/home-page/' +
           banner + '_550x250.jpg'}}"
-       alt="Image">
+       alt="Image"> -->
       <!--<div>-->
         <!--<button mat-icon-button matStepperNext>-->
           <!--<mat-icon>navigate_next</mat-icon></button>-->

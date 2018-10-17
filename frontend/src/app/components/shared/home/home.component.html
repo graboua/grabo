@@ -49,7 +49,7 @@
                 <a fxFlex="100" fxLayoutAlign="center center"
                 [routerLink]="['/products', 'ch', {outlets: {primary: [descendant._id], breadcrumb: [descendant._id]}}]"
                 [routerLinkActive]="['accent-background']" [routerLinkActiveOptions]="{exact: true}">
-                <!-- <img *ngIf="media.isActive('gt-sm')"
+                <img *ngIf="media.isActive('gt-sm')"
                       class="responsive-image" src="{{
                       config.imgPath +
                       config.cloudinary.cloud_name +
@@ -62,8 +62,8 @@
                       config.cloudinary.cloud_name +
                       '/c_fill,w_600,h_300,f_auto/e_saturation:-70/' +
                       descendant.assets[0]}}"
-                      alt="Category image"> -->
-                <img *ngIf="media.isActive('gt-sm')"
+                      alt="Category image">
+                <!-- <img *ngIf="media.isActive('gt-sm')"
                       class="responsive-image" src="{{
                         '/assets/images/home-page/' +
                         descendant.assets[0] + '_680x340.jpg'}}"
@@ -72,7 +72,7 @@
                       class="responsive-image" src="{{
                         '/assets/images/home-page/' +
                         descendant.assets[0] + '_600x300.jpg'}}"
-                      alt="Category image">
+                      alt="Category image"> -->
                 </a>
 
                 

@@ -1,6 +1,6 @@
   <div class="container">
 
-      <div class="row" fxLayout=row id="home-top" #scrollPointTop 
+      <div class="row" fxLayout=row id="home-top" #scrollPointTop
         data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
         <div class="cell" fxFlex=5 hxHide.lt-md></div>
         <div class="cell-padding-2 wrap" fxFlex="100" fxFlex.gt-sm=40 fxLayout="row">
@@ -11,7 +11,7 @@
                 <div class="padding-bottom" fxFlex="100"  fxLayoutAlign="start center">
                     <app-design-searcher [closer]="false"></app-design-searcher>
                 </div>
-          
+
 
               </div>
               <div class="wrap" fxFlex="100" fxLayoutAlign="center center">
@@ -33,7 +33,7 @@
       </div>
 
       <div id="home-center" #scrollPointCenter>
-          <div class="row home-center-section" fxLayout=row *ngFor="let descendant of descendants" 
+          <div class="row home-center-section" fxLayout=row *ngFor="let descendant of descendants"
             data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
             <div class="cell" fxFlex=5 hxHide.lt-md></div>
             <div class="cell-padding-2 wrap" fxFlex="100" fxFlex.gt-sm=40 fxLayoutAlign="center center">
@@ -75,12 +75,12 @@
                       alt="Category image"> -->
                 </a>
 
-                
+
             </div>
         </div>
       </div>
 
-  <div class="row" fxLayout=row id="home-bottom"   
+  <div class="row" fxLayout=row id="home-bottom"
         data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
     <div class="cell-padding-2" fxFlex="100">
       <!-- <div class="row" fxLayout="row">
@@ -92,9 +92,9 @@
       </div> -->
 
       <div class="row" fxLayout="row" fxLayoutAlign.xs="center" fxLayoutAlign.sm="start" fxLayoutAlign.gt-sm="center">
-        <button mat-icon-button (click)="onScrollTop()" aria-label="scroll" 
+        <button mat-icon-button (click)="onScrollTop()" aria-label="scroll"
         id="scroll-top-btn"><mat-icon>keyboard_arrow_up</mat-icon></button>
-        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33.3">
+        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.gt-md="25">
                 <h3 class="mat-h2 text-align-center address">Головний офіс</h3>
                 <p class="text-justify muted mat-body address">
                   Адреса: м. Дніпро, вул. Булата, 12
@@ -124,7 +124,7 @@
                   </a>
                 </p>
         </div>
-        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33.3">
+        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.gt-md="25">
                     <h3 class="mat-h2 text-align-center address">Західний регіон</h3>
                     <p class="text-justify muted">
                       <a mat-button class="muted" aria-label="call"
@@ -139,7 +139,7 @@
                       </a>
                     </p>
         </div>
-        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.gt-sm="33.3">
+        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.gt-md="25">
                     <h3 class="mat-h2 text-align-center address">м. Київ</h3>
                     <h3 class="mat-h3 address">ТОВ "Віваді"</h3>
                     <p class="text-justify muted mat-body address">
@@ -175,6 +175,22 @@
                         <mat-icon>screen_share</mat-icon> www.vivadi.com.ua
                       </a>
                     </p>
+        </div>
+        <div class="cell" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="50" fxFlex.gt-md="25">
+          <h3 class="mat-h2 text-align-center address">м. Одеса</h3>
+          <h3 class="mat-h3 address">Котеленець Олена</h3>
+          <p class="text-justify muted">
+            <a mat-button class="muted"
+              href="tel:+380973504473">
+              <mat-icon>phone_android</mat-icon> 097 350 44 73
+            </a>
+          </p>
+          <p class="text-justify muted">
+            <a mat-button class="muted"
+              href="tel:+380956848203">
+              <mat-icon>phone_android</mat-icon> 095 684 82 03
+            </a>
+          </p>
         </div>
       </div>
     </div>

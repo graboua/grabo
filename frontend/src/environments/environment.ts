@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  cloud_name: 'hcwwcxz0m',
+  cloud_name: 'hq79jiuvb',
+  // cloud_name: 'hcwwcxz0m',
 };
 
 /*
